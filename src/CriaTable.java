@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class CreateTable {
+public class CriaTable {
 
     public static void main(String[] args){
 
