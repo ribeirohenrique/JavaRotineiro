@@ -4,6 +4,8 @@ public class CriaTable {
 
     public static void main(String[] args){
 
+        //Essa classe cria uma saída para ser colada diretamente no Talend como row1.NOMEDACOLUNA
+
         Scanner rfcColumns = new Scanner(System.in);  //Create a Scanner object
         System.out.print("Enter table columns: ");
         String readColumns = rfcColumns.nextLine();  //Read user input
