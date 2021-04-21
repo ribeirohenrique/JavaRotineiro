@@ -1,7 +1,11 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public class ExercitandoArray {
     public static void main(String[] args) {
         //Aqui será declarado um novo array de Strings chamado "nomes"
         String[] nomes;
+
 
         //Aqui será declarado um novo array de Strings chamado "carros" e com valores já definidos
         String[] carros = {"Tesla", "BMW", "Ford", "Mazda"};
@@ -74,6 +78,22 @@ public class ExercitandoArray {
             }
         }
         System.out.println("-------------------");
+
+        //Entrada de dados pelo usuario alimentando um array e posteriormente exibindo os valores
+        Scanner entrada = new Scanner(System.in);
+        Random dadoRandom = new Random();
+        int[] valoresDigitados = new int[5];
+        for (int i = 0; i < valoresDigitados.length; i++) {
+            valoresDigitados[i] = dadoRandom.nextInt(11);
+        }
+
+        for (int i : valoresDigitados) {
+            System.out.println("Valor registrado através do For-Each: " + i);
+        }
+        System.out.println("-------------------");
+        System.out.println("O Tamanho do array valoresDigitados é: " + valoresDigitados.length);
+
+
 
     }
 }
