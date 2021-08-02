@@ -20,10 +20,10 @@ public class RegexTest {
         String str6 = "1234123123123123123123123123123dfhdfghdfgh_4W";
         String str7 = "1234 E_3W";
 
-        System.out.println(str4.replaceAll("\\_([^_]+)$", ""));
-        System.out.println(str5.replaceAll("\\_([^_]+)$", ""));
-        System.out.println(str6.replaceAll("\\_([^_]+)$", ""));
-        System.out.println(str7.replaceAll("\\_([^_]+)$", ""));
+        System.out.println(str4.replaceAll("_([^_]+)$", ""));
+        System.out.println(str5.replaceAll("_([^_]+)$", ""));
+        System.out.println(str6.replaceAll("_([^_]+)$", ""));
+        System.out.println(str7.replaceAll("_([^_]+)$", ""));
 
     }
 }

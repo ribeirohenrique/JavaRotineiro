@@ -5,8 +5,9 @@ public class DatabaseTest {
         TestConnection m1 = new TestConnection();
         CreateTable c1 = new CreateTable();
 
-        m1.testConnection("exampledb");
-        c1.createNewTable("exampledb");
+        c1.createNewDatabase();
+        //c1.createNewTable("Testando");
+        m1.testConnection(c1.getDatabasename());
 
     }
 }

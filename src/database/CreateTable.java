@@ -9,6 +9,15 @@ import java.util.Scanner;
 public class CreateTable extends TestConnection {
     private String tableName;
     private String sqlStatement;
+    private String databasename;
+
+    public String getDatabasename() {
+        return databasename;
+    }
+
+    public void setDatabasename(String databasename) {
+        this.databasename = databasename;
+    }
 
     public String getTableName() {
         return tableName;
@@ -26,6 +35,45 @@ public class CreateTable extends TestConnection {
         this.sqlStatement = sqlStatement;
     }
 
+    //Aqui acontece a magia
+    public void createNewDatabase() {
+        Connection conn = null;
+        Statement stmt = null;
+        String databaseConn = this.getDB_URL();
+        try {
+            conn = DriverManager.getConnection(databaseConn, this.getUSER(), this.getPASS());
+            //STEP 4: Execute a query
+            Scanner db = new Scanner(System.in);
+            System.out.print("Digite o nome do Database: ");
+            this.setDatabasename(db.nextLine());
+            stmt = conn.createStatement();
+            //Cria o database
+            String sql1 = "CREATE DATABASE IF NOT EXISTS " + this.getDatabasename();
+            stmt.executeUpdate(sql1);
+            System.out.println("Database criado...");
+
+        } catch (Exception se) {
+            //Handle errors for JDBC
+            se.printStackTrace();
+        }//Handle errors for Class.forName
+        finally {
+            //finally block used to close resources
+            try {
+                if (stmt != null) {
+                    conn.close();
+                }
+            } catch (SQLException ignored) {
+            }// do nothing
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }//end finally try
+        }//end try
+        System.out.println("Goodbye!");
+    }//end main
     public void createNewTable(String database) {
         Connection conn = null;
         Statement stmt = null;
@@ -73,4 +121,4 @@ public class CreateTable extends TestConnection {
         }//end try
         System.out.println("Goodbye!");
     }//end main
-}//end JDBCExample
+}

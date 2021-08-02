@@ -5,8 +5,8 @@ import java.sql.*;
 
 public class TestConnection {
     //JDBC driver name and database URL
-    private static String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
-    private String DB_URL = "jdbc:mariadb://192.168.15.197/";
+    private static final String JDBC_DRIVER = "org.mariadb.jdbc.Driver";
+    private String DB_URL = "jdbc:mariadb://pi2b/";
 
     //Database credentials
     private String USER = "developer";
@@ -44,7 +44,7 @@ public class TestConnection {
         try {
             Class.forName(JDBC_DRIVER);
 
-            System.out.println("Connecting to a selected database...");
+            //System.out.println("Connecting to a selected database...");
             conn = DriverManager.getConnection(databaseConn, USER, PASS);
             System.out.println("Connected database successfully...");
 

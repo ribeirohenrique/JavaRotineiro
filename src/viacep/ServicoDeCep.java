@@ -5,6 +5,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ServicoDeCep {
 
@@ -25,8 +27,7 @@ public class ServicoDeCep {
             String jsonEmString = UtilJson.converteJsonEmString(resposta); //Conversor do Json
 
             Gson gson = new Gson(); //Transforma Json em String
-            Endereco endereco = gson.fromJson(jsonEmString, Endereco.class);
-            return endereco;
+            return gson.fromJson(jsonEmString, Endereco.class);
 
         } catch (Exception e) {
             throw new Exception("Erro: " + e);

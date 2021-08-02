@@ -5,10 +5,11 @@ import java.io.IOException;
 
 public class UtilJson {
     public static String converteJsonEmString(BufferedReader bufferedReader) throws IOException {
-        String resposta, jsonEmString = "";
+        String resposta;
+        StringBuilder jsonEmString = new StringBuilder();
         while ((resposta = bufferedReader.readLine()) != null) {
-            jsonEmString += resposta;
+            jsonEmString.append(resposta);
         }
-        return jsonEmString;
+        return jsonEmString.toString();
     }
 }
